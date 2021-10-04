@@ -4,11 +4,11 @@
 # All rights reserved by FayasNoushad
 # License -> https://github.com/FayasNoushad/Short-Link-API/blob/main/LICENSE
 
-from flask import Flask, redirect, request, jsonify, json
+from flask import Flask, redirect, render_template, request, jsonify, json
 from shortener import short
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="public")
 
 
 @app.route("/")
@@ -16,7 +16,7 @@ def main():
     if request.args.get('query'):
         query = request.args.get('query')
     else:
-        return "Documentation:- <a href='https://github.com/FayasNoushad/Short-Link-API'>Short-Link-API</a>"
+        return render_template("index.html")
     results = short(query)
     if results is not None:
         return jsonify(results)
