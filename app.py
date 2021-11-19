@@ -1,9 +1,3 @@
-# Made with python3
-# (C) @FayasNoushad
-# Copyright permission under MIT License
-# All rights reserved by FayasNoushad
-# License -> https://github.com/FayasNoushad/Short-Link-API/blob/main/LICENSE
-
 from flask import Flask, redirect, render_template, request, jsonify, json
 from shortener import short
 
